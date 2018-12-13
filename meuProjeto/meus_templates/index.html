@@ -8,5 +8,26 @@
     <li>Item 5</li>
     <li>Item 6</li>
 </ul>
-
-{{nome_que_dei_pra_variavel}} <!-- Aqui eu me preparo para receber a variavel do views --> 
+<br>
+<br>
+<p>Condicionais:</p>
+<!-- Aqui eu me preparo para receber a variavel do views --> 
+{% if var_sexo == 'm' or var_sexo == 'M' %}
+    Olá senhor {{var_nome}}
+{% elif var_sexo == 'f' or var_sexo == 'F' %}
+    Olá senhora {{var_nome}}
+{% else %}
+    Ola {{var_nome}}
+{% endif %}
+<br>
+<br>
+<p>Condicionais:</p>
+{% for pessoa in nome_da_lista %}
+    {% if pessoa.sexo == 'm' or pessoa.sexo == 'M' %}
+        <li>Olá senhor {{pessoa.nome}}</li>
+    {% elif pessoa.sexo == 'f' or pessoa.sexo == 'F' %}
+        <li>Olá senhora {{pessoa.nome}}</li>
+    {% else %}
+        <li>Olá {{pessoa.nome}}</li>
+    {% endif %}
+{% endfor %}
