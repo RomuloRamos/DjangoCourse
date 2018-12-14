@@ -1,33 +1,54 @@
-<h1>Ola Mundo (Template)</h1>
+<!-- Isso possibilitará que o bloco "main", contido dentro de base.html, 
+importe todo o conteúdo continto entre as tags "enblock main/enblock" -->
 
-<ul>
-    <li>Item 1</li>
-    <li>Item 2</li>
-    <li>Item 3</li>
-    <li>Item 4</li>
-    <li>Item 5</li>
-    <li>Item 6</li>
-</ul>
-<br>
-<br>
-<p>Condicionais:</p>
-<!-- Aqui eu me preparo para receber a variavel do views --> 
-{% if var_sexo == 'm' or var_sexo == 'M' %}
-    Olá senhor {{var_nome}}
-{% elif var_sexo == 'f' or var_sexo == 'F' %}
-    Olá senhora {{var_nome}}
-{% else %}
-    Ola {{var_nome}}
-{% endif %}
-<br>
-<br>
-<p>Condicionais:</p>
-{% for pessoa in nome_da_lista %}
-    {% if pessoa.sexo == 'm' or pessoa.sexo == 'M' %}
-        <li>Olá senhor {{pessoa.nome}}</li>
-    {% elif pessoa.sexo == 'f' or pessoa.sexo == 'F' %}
-        <li>Olá senhora {{pessoa.nome}}</li>
-    {% else %}
-        <li>Olá {{pessoa.nome}}</li>
-    {% endif %}
-{% endfor %}
+{% extends "base.html" %}
+
+    {%block title%} 
+        Seja bem vindo - Página Principal
+    {%endblock%}
+    {% block main %}
+
+
+        <h1>Ola Mundo (Template)</h1>
+
+        <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+            <li>Item 5</li>
+            <li>Item 6</li>
+        </ul>
+        <br>
+        <br>
+        <p>Condicionais:</p>
+        <!-- Aqui eu me preparo para receber a variavel do views --> 
+        {% if var_sexo == 'm' or var_sexo == 'M' %}
+            Olá senhor {{var_nome}}
+        {% elif var_sexo == 'f' or var_sexo == 'F' %}
+            Olá senhora {{var_nome}}
+        {% else %}
+            Ola {{var_nome}}
+        {% endif %}
+        <br>
+        <br>
+        <p>Condicionais:</p>
+        {% for pessoa in nome_da_lista %}
+            {% if pessoa.sexo == 'm' or pessoa.sexo == 'M' %}
+                <li>Olá senhor {{pessoa.nome}}</li>
+            {% elif pessoa.sexo == 'f' or pessoa.sexo == 'F' %}
+                <li>Olá senhora {{pessoa.nome}}</li>
+            {% else %}
+                <li>Olá {{pessoa.nome}}</li>
+            {% endif %}
+        {% endfor %}
+
+        <button class="btn btn-info">Clique Aqui</button>
+        <br>
+        <!-- Utilização do recurso "include", que importa a 
+        estrutura HTML existente em footer.html e, através
+        do "with", envia para o footer.html a variavel var_nome
+        para que a mesma possa ser usada lá-->
+        {% include "footer.html" with footer_var=var_nome%}
+
+    {% endblock  %}    S 
