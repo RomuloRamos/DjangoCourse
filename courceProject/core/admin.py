@@ -6,7 +6,7 @@ from .models import (
     Parametro,
     Mensalista,
     MovRotativo,
-    MOvMensalista
+    MovMensalista
 )
 
 # Register your models here.
@@ -23,5 +23,5 @@ admin.site.register(Veiculo)
 admin.site.register(Pessoa)
 admin.site.register(Parametro)
 admin.site.register(Mensalista)
-admin.site.register(MOvMensalista, MovMensalistaAdmin)
+admin.site.register(MovMensalista, MovMensalistaAdmin)
 admin.site.register(MovRotativo, MovRotativoAdmin)
