@@ -6,11 +6,13 @@ from .views import (
     lista_movrotativos,
     lista_mensalistas,
     lista_movmensalistas,
+    pessoa_novo,
 )
 
 urlpatterns = [
     path('', home, name='core_home'), 
     path('pessoa', lista_pessoas, name='core_lista_pessoas'),
+    path('pessoa-novo', pessoa_novo, name='core_pessoa_novo'),
     path('pessoas', lista_pessoas, name='core_lista_pessoas'),
     path('veiculos', lista_veiculos, name='core_lista_veiculos'),
     path('mov_rotativos', lista_movrotativos, name='core_lista_movrot'),

@@ -2,6 +2,6 @@
 
 <ul>
 {% for item_da_vez in mensalistas %}
-    <li>{{item_da_vez}}</li>
+    <li>{{item_da_vez.inicio}} - {{item_da_vez.veiculo.placa}}</li>
 {%endfor%}
 </ul>

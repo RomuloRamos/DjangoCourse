@@ -2,6 +2,6 @@
 
 <ul>
 {% for item_da_vez in movmensalistas %}
-    <li>{{item_da_vez}}</li>
+    <li>{{item_da_vez.mensalista}} - {{item_da_vez.dt_pgto}}</li>
 {%endfor%}
 </ul>

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import (
     Pessoa,
     Veiculo,
@@ -6,6 +6,8 @@ from .models import (
     Mensalista,
     MovMensalista,
 )
+from .form import PessoaForm
+
 
 # Create your views here.
 def home(request):
@@ -14,7 +16,15 @@ def home(request):
 
 def lista_pessoas(request):
     lista = Pessoa.objects.all() #efetua a busca no banco de todos os objetos dessa classe
-    return render(request, 'core/lista_pessoas.html', {'pessoas':lista})
+    form = PessoaForm()
+    data = {'pessoas':lista, 'form':form}
+    return render(request, 'core/lista_pessoas.html', data)
+
+def pessoa_novo(request):
+    form = PessoaForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+    return redirect('core_pessoa_novo')   
 
 def lista_veiculos(request):
     lista = Veiculo.objects.all() #efetua a busca no banco de todos os objetos dessa classe
