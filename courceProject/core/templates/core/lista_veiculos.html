@@ -1,7 +1,15 @@
-<h2>LIsta veiculos</h2>
+<h2>Lista veiculos</h2>
 
 <ul>
 {% for item_da_vez in veiculos %}
     <li>{{item_da_vez}}</li>
 {%endfor%}
 </ul>
+
+<form action="{% url 'core_veiculo_novo' %}" method="POST">
+    {% csrf_token %}
+
+    {{form.as_p}}
+
+    <button type="submit">Cadastrar</button> 
+</form>
