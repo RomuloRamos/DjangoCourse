@@ -6,7 +6,7 @@ from .models import (
     Mensalista,
     MovMensalista,
 )
-from .form import PessoaForm, VeiculoForm, MovRotForm
+from .form import PessoaForm, VeiculoForm, MovRotForm, MensalistaForm, MovMensalistasForm
 
 
 # Create your views here.
@@ -52,8 +52,24 @@ def movrotativos_novo(request):
 
 def lista_mensalistas(request):
     lista = Mensalista.objects.all() #efetua a busca no banco de todos os objetos dessa classe
-    return render(request, 'core/lista_mensalistas.html', {'mensalistas':lista})
+    form = MensalistaForm()
+    data  = {'mensalistas':lista , 'form': form}
+    return render(request, 'core/lista_mensalistas.html', data)
+
+def mensalistas_novo(request):
+    form = MensalistaForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+    return redirect('core_lista_mensalistas')
 
 def lista_movmensalistas(request):
     lista = MovMensalista.objects.all() #efetua a busca no banco de todos os objetos dessa classe
-    return render(request, 'core/lista_movmensalistas.html', {'movmensalistas':lista})
+    form = MovMensalistasForm()
+    data = {'movmensalistas':lista , 'form':form}
+    return render(request, 'core/lista_movmensalistas.html', data)
+
+def movmensalistas_novo(request):
+    form = MovMensalistasForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+    return redirect('core_lista_movmensalistas')
