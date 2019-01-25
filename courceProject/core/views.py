@@ -27,11 +27,12 @@ def pessoa_novo(request):
     return redirect('core_lista_pessoas')  
 
 def pessoa_update(request, id):
-    data = {}
-    pessoa = Pessoa.objects.get(id = id)
-    form = PessoaForm(request.Post or None, instance=pessoa)
-    data['pessoa'] = pessoa
-    data['form'] = form
+    data = {} #cria um dicionário
+    pessoa = Pessoa.objects.get(id = id) #busca a pessoa que se deseja atualizar no banco, através do ID
+    form = PessoaForm(request.POST or None, instance=pessoa) #instancia um formulario, passando a "pessoa" que foi resgatada do banco para que seja preenchido 
+    data['pessoa'] = pessoa #insere "pessoa no dicionário"
+    data['form'] = form #insere o "form" no dicionário
+
     if request.method == 'POST':
         if form.is_valid():
             form.save()
