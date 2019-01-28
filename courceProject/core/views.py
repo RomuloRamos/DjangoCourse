@@ -51,7 +51,21 @@ def veiculo_novo(request):
     form = VeiculoForm(request.POST or None)
     if form.is_valid():
         form.save()
-    return redirect('core_lista_veiculos')   
+    return redirect('core_lista_veiculos')  
+
+def veiculo_update(request, id):
+    data = {} #cria um dicionário
+    veiculo = Veiculo.objects.get(id = id) #busca o veiculo que se deseja atualizar no banco, através do ID
+    form = VeiculoForm(request.POST or None, instance=veiculo) #instancia um formulario, passando a "pessoa" que foi resgatada do banco para que seja preenchido 
+    data['veiculo'] = veiculo #insere "pessoa no dicionário"
+    data['form'] = form #insere o "form" no dicionário
+
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('core_lista_veiculos')
+    else:
+        return render(request, 'core/update_veiculo.html', data)        
 
 def lista_movrotativos(request):
     lista = MovRotativo.objects.all() #efetua a busca no banco de todos os objetos dessa classe
