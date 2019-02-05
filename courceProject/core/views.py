@@ -77,7 +77,21 @@ def movrotativos_novo(request):
     form = MovRotForm(request.POST or None)
     if form.is_valid():
         form.save()
-    return redirect('core_lista_movrot')       
+    return redirect('core_lista_movrot')    
+
+def movRotativos_update(request, id):
+    data = {} #cria um dicionário
+    movRot = MovRotativo.objects.get(id = id) #busca o veiculo que se deseja atualizar no banco, através do ID
+    form = MovRotForm(request.POST or None, instance=movRot) #instancia um formulario, passando a "pessoa" que foi resgatada do banco para que seja preenchido 
+    data['movRot'] = movRot #insere "pessoa no dicionário"
+    data['form'] = form #insere o "form" no dicionário
+
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('core_lista_movrot')
+    else:
+        return render(request, 'core/update_movRot.html', data)        
 
 def lista_mensalistas(request):
     lista = Mensalista.objects.all() #efetua a busca no banco de todos os objetos dessa classe
@@ -90,6 +104,20 @@ def mensalistas_novo(request):
     if form.is_valid():
         form.save()
     return redirect('core_lista_mensalistas')
+  
+def mensalistas_update(request, id):
+    data = {} #cria um dicionário
+    mensalista = Mensalista.objects.get(id = id) #busca o veiculo que se deseja atualizar no banco, através do ID
+    form = MensalistaForm(request.POST or None, instance=mensalista) #instancia um formulario, passando a "pessoa" que foi resgatada do banco para que seja preenchido 
+    data['mensalista'] = mensalista #insere "pessoa no dicionário"
+    data['form'] = form #insere o "form" no dicionário
+
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('core_lista_mensalistas')
+    else:
+        return render(request, 'core/update_mensalista.html', data)            
 
 def lista_movmensalistas(request):
     lista = MovMensalista.objects.all() #efetua a busca no banco de todos os objetos dessa classe
@@ -102,3 +130,17 @@ def movmensalistas_novo(request):
     if form.is_valid():
         form.save()
     return redirect('core_lista_movmensalistas')
+
+def mov_mensalistas_update(request, id):
+    data = {} #cria um dicionário
+    mensalista = Mensalista.objects.get(id = id) #busca o veiculo que se deseja atualizar no banco, através do ID
+    form = MovMensalistasForm(request.POST or None, instance=mensalista) #instancia um formulario, passando a "pessoa" que foi resgatada do banco para que seja preenchido 
+    data['mensalista'] = mensalista #insere "pessoa no dicionário"
+    data['form'] = form #insere o "form" no dicionário
+
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('core_lista_movmensalistas')
+    else:
+        return render(request, 'core/update_movMensalista.html', data)            
