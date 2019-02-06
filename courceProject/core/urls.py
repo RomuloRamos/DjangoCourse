@@ -1,44 +1,59 @@
 from django.urls import path, include
 from .views import (
     home, 
-    lista_pessoas,
-    lista_veiculos,
-    lista_movrotativos,
-    lista_mensalistas,
-    lista_movmensalistas,
+
+    pessoa_lista,
     pessoa_novo,
-    veiculo_novo,
-    movrotativos_novo,
-    mensalistas_novo,
-    movmensalistas_novo,
     pessoa_update,
+    pessoa_delete,
+
+    veiculo_lista,
+    veiculo_novo,
     veiculo_update,
+ #   veiculo_delete,
+
+    movRotativos_lista,
+    movRotativos_novo,
     movRotativos_update,
+ #   movRotativos_delete,
+
+    mensalistas_lista,
+    mensalistas_novo,
     mensalistas_update,
-    mov_mensalistas_update,
+ #   mensalistas_delete,
+    
+    movMensalistas_lista,
+    movMensalistas_novo,
+    movMensalistas_update,
+ #   movMensalistas_delete,
 )
 
 urlpatterns = [
     path('', home, name='core_home'), 
 
-    path('pessoa', lista_pessoas, name='core_lista_pessoas'),
-    path('pessoas', lista_pessoas, name='core_lista_pessoas'),
+    path('pessoa', pessoa_lista, name='core_pessoa_lista'),
+    path('pessoas', pessoa_lista, name='core_pessoas_lista'),
     path('pessoa-novo', pessoa_novo, name='core_pessoa_novo'),
     path('pessoa-update/<int:id>', pessoa_update, name='core_pessoa_update'),
+    path('pessoa-delete/<int:id>', pessoa_delete, name='core_pessoa_delete'),
     
-    path('veiculos', lista_veiculos, name='core_lista_veiculos'),
+    path('veiculo', veiculo_lista, name='core_veiculo_lista'),
     path('veiculo-novo', veiculo_novo, name='core_veiculo_novo'),
     path('veiculo-update/<int:id>', veiculo_update, name='core_veiculo_update'),
+#    path('veiculo-delete/<int:id>', veiculo_delete, name='core_veiculo_delete'),
 
-    path('mov_rotativos', lista_movrotativos, name='core_lista_movrot'),
-    path('mov-rot-novo', movrotativos_novo, name = 'core_mov_rot_novo'),
-    path('mov-rot-update/<int:id>', movRotativos_update, name='core_movrotativos_update'),
+    path('mov_rotativos', movRotativos_lista, name='core_movRotativos_lista'),
+    path('mov_rotativos-novo', movRotativos_novo, name = 'core_movRotativos_novo'),
+    path('mov_rotativos-update/<int:id>', movRotativos_update, name='core_movRotativos_update'),
+#    path('mov_rotativos-delete/<int:id>', movRotativos_delete, name='core_movRotativos_delete'),
 
-    path('mensalistas', lista_mensalistas, name='core_lista_mensalistas'),
+    path('mensalistas', mensalistas_lista, name='core_mensalistas_lista'),
     path('mensalistas-novo', mensalistas_novo, name = 'core_mensalistas_novo'),
     path('mensalistas-update/<int:id>', mensalistas_update, name='core_mensalistas_update'),
+#    path('mensalistas-delete/<int:id>', mensalistas_delete, name='core_mensalistas_delete'),
 
-    path('mov_mensalistas', lista_movmensalistas, name='core_lista_movmensalistas'),
-    path('mov_mensalistas-novo', movmensalistas_novo, name = 'core_mov_mensalistas_novo'),
-    path('mov_mensalistas-update/<int:id>', mov_mensalistas_update, name='core_movMensalistas_update'),
+    path('mov_mensalistas', movMensalistas_lista, name='core_movMensalistas_lista'),
+    path('mov_mensalistas-novo', movMensalistas_novo, name = 'core_movMensalistas_novo'),
+    path('mov_mensalistas-update/<int:id>', movMensalistas_update, name='core_movMensalistas_update'),
+#    path('mov_mensalistas-delete/<int:id>', movMensalistas_delete, name='core_movMensalistas_delete'),
 ]

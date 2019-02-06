@@ -3,13 +3,13 @@
 <ul>
 {% for item_da_vez in mov_rot %}
     <li>
-        <a href="{% url 'core_movrotativos_update' item_da_vez.id %}"> {{item_da_vez}} </a>
+        <a href="{% url 'core_movRotativos_update' item_da_vez.id %}"> {{item_da_vez}} </a>
     </li>
 {%endfor%}
 </ul>
 
 
-<form action="{% url 'core_mov_rot_novo' %}" method="POST">
+<form action="{% url 'core_movRotativos_novo' %}" method="POST">
     {% csrf_token %}
 
     {{form.as_p}}

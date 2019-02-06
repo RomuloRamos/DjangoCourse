@@ -21,7 +21,7 @@ class MensalistaForm(ModelForm):
         model = Mensalista
         fields = '__all__'
 
-class MovMensalistasForm(ModelForm):
+class movMensalistasForm(ModelForm):
     class Meta:
         model = MovMensalista
         fields = '__all__'        

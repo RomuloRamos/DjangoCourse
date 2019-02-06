@@ -1,14 +1,14 @@
-<h2>Lista Movmensalistas</h2>
+<h2>Lista movMensalistas</h2>
 
 <ul>
-{% for item_da_vez in movmensalistas %}
+{% for item_da_vez in movMensalistas %}
     <li>
         <a href = "{% url 'core_movMensalistas_update' item_da_vez.id %}"> {{item_da_vez.mensalista}} - {{item_da_vez.dt_pgto}} </a>
     </li>
 {%endfor%}
 </ul>
 
-<form action="{% url 'core_mov_mensalistas_novo' %}" method="POST">
+<form action="{% url 'core_movMensalistas_novo' %}" method="POST">
     {% csrf_token %}
 
     {{form.as_p}}
