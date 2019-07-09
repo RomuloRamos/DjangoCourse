@@ -1,18 +1,22 @@
-<h2>LIsta pessoas</h2>
+{% extends 'base.html' %}
 
-<ul>
-{% for item_da_vez in mov_rot %}
-    <li>
-        <a href="{% url 'core_movRotativos_update' item_da_vez.id %}"> {{item_da_vez}} </a>
-    </li>
-{%endfor%}
-</ul>
+{% block main %}
+    <h2>LIsta pessoas</h2>
+
+    <ul>
+        {% for item_da_vez in mov_rot %}
+        <li>
+            <a href="{% url 'core_movRotativos_update' item_da_vez.id %}"> {{item_da_vez}} </a>
+        </li>
+        {%endfor%}
+    </ul>
 
 
-<form action="{% url 'core_movRotativos_novo' %}" method="POST">
-    {% csrf_token %}
-
-    {{form.as_p}}
-
-    <button type="submit">Cadastrar</button> 
-</form>
+    <form action="{% url 'core_movRotativos_novo' %}" method="POST">
+        {% csrf_token %}
+        
+        {{form.as_p}}
+        
+        <button type="submit">Cadastrar</button> 
+    </form>
+{% endblock %}

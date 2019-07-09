@@ -1,11 +1,15 @@
-<h2>Updating movRot: {{movRot}}</h2>
+{% extends 'base.html' %}
 
-<form action="{%url 'core_movRotativos_update' movRot.id %}" method="POST">
-        {% csrf_token %}
+{% block main %}
+        <h2>Updating movRot: {{movRot}}</h2>
 
-        {{form.as_p}}
+        <form action="{%url 'core_movRotativos_update' movRot.id %}" method="POST">
+                {% csrf_token %}
+                
+                {{form.as_p}}
+                
+                <button type="submit">Salvar</button> 
+        </form>
 
-        <button type="submit">Salvar</button> 
-</form>
-
-<a href="{%url 'core_movRotativos_delete' movRot.id %}" method="GET">Deletar</a>
+        <a href="{%url 'core_movRotativos_delete' movRot.id %}" method="GET">Deletar</a>
+{% endblock %}

@@ -1,11 +1,15 @@
-<h2>Updating mensalista: {{mensalista}}</h2>
+{% extends 'base.html' %}
 
-<form action="{%url 'core_mensalistas_update' mensalista.id %}" method="POST">
-        {% csrf_token %}
+{% block main %}
+        <h2>Updating mensalista: {{mensalista}}</h2>
 
-        {{form.as_p}}
+        <form action="{%url 'core_mensalistas_update' mensalista.id %}" method="POST">
+                {% csrf_token %}
+                
+                {{form.as_p}}
+                
+                <button type="submit">Salvar</button> 
+        </form>
 
-        <button type="submit">Salvar</button> 
-</form>
-
-<a href="{%url 'core_mensalistas_delete' mensalista.id %}" method="GET">Deletar</a>
+        <a href="{%url 'core_mensalistas_delete' mensalista.id %}" method="GET">Deletar</a>
+{% endblock %}

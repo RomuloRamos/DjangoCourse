@@ -1,6 +1,10 @@
-<h2> Tem certeza que deseja deletar: {{movRotativos}}?</h2>
+{% extends 'base.html' %}
 
-<form method="POST" action="{% url 'core_movRotativos_delete' movRotativos.id %}">
-    {% csrf_token %}
-    <button type="submit">Deletar</button>
-</form>
+{% block main %}
+    <h2> Tem certeza que deseja deletar: {{movRotativos}}?</h2>
+
+    <form method="POST" action="{% url 'core_movRotativos_delete' movRotativos.id %}">
+        {% csrf_token %}
+        <button type="submit">Deletar</button>
+    </form>
+{% endblock %}
