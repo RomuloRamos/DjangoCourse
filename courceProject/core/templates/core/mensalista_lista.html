@@ -1,22 +1,34 @@
 {% extends 'base.html' %}
-
+{% load bootstrap %}
 {% block main %}
-    <h2>Lista Mensalistas</h2>
+    <div class="row">
 
-    <ul>
-        {% for item_da_vez in mensalistas %}
-        <li>
-            <a href = "{% url 'core_mensalistas_update' item_da_vez.id%}" >  {{item_da_vez.inicio}} - {{item_da_vez.veiculo.placa}} </a> 
-        </li>
-        {%endfor%}
-    </ul>
+        <div class="col" >
 
-    <form action="{% url 'core_mensalistas_novo' %}" method="POST">
-        {% csrf_token %}
+            <h2>Lista Mensalistas</h2>
         
-        {{form.as_p}}
-        
-        <button type="submit">Cadastrar</button> 
-    </form>
+        </div>
 
+    </div>
+    
+    <div class="row">
+        <div class="col-4">            
+            <form action="{% url 'core_mensalistas_novo' %}" method="POST">
+                {% csrf_token %}
+                
+                {{ form|bootstrap }}
+                
+                <button type="submit" class="btn btn-primary">Cadastrar</button> 
+            </form>
+        </div>
+        
+        <div class="col-8">
+                <ul>
+                {% for item_da_vez in mensalistas %}
+                <li>
+                    <a href = "{% url 'core_mensalistas_update' item_da_vez.id%}" >  {{item_da_vez.inicio}} - {{item_da_vez.veiculo.placa}} </a> 
+                </li>
+                {%endfor%}
+            </ul>
+        </div>
 {% endblock %}

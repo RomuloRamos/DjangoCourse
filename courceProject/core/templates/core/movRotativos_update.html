@@ -1,15 +1,23 @@
 {% extends 'base.html' %}
+{% load bootstrap %}
 
 {% block main %}
-        <h2>Updating movRot: {{movRot}}</h2>
-
-        <form action="{%url 'core_movRotativos_update' movRot.id %}" method="POST">
-                {% csrf_token %}
+        <div class="row">
+                <div class="col">
+                        <h2>Updating movRot: {{movRot}}</h2>
                 
-                {{form.as_p}}
-                
-                <button type="submit">Salvar</button> 
-        </form>
+                        <form action="{%url 'core_movRotativos_update' movRot.id %}" method="POST">
+                                {% csrf_token %}
+                                
+                                {{form|bootstrap}}
+                                
+                                <button type="submit" class="btn btn-primary">Salvar</button> 
+                                <a href="{%url 'core_movRotativos_delete' movRot.id %}" class ="btn btn-danger" method="GET">Deletar</a>
+                        </form>
+                        
+                </div>
 
-        <a href="{%url 'core_movRotativos_delete' movRot.id %}" method="GET">Deletar</a>
+        </div>
+
+
 {% endblock %}

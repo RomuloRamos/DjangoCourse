@@ -4,11 +4,17 @@
 
 <div class="row">
     <div class="col">
-        <h2> Tem certeza que deseja deletar: {{mensalista}}?</h2>
-        
+        <h2> Tem certeza que deseja deletar?</h2>
+        <h4>Deletando: {{mensalista}}?</h4>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">        
         <form method="POST" action="{% url 'core_mensalistas_delete' mensalista.id %}">
             {% csrf_token %}
             <button type="submit" class="btn btn-danger">Deletar</button>
+            <a href="{%url 'core_mensalistas_update' mensalista.id%}" class="btn btn-primary">Cancelar</a>
         </form>
     </div>
 

@@ -111,7 +111,7 @@ def movRotativos_update(request, id):
         return render(request, 'core/movRotativos_update.html', data)        
 
 def movRotativos_delete(request, id):
-    movRotativos = MovRotativos.objects.get(id = id)
+    movRotativos = MovRotativo.objects.get(id = id)
     
     if request.method == 'POST':
         movRotativos.delete()

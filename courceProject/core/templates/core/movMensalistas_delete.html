@@ -1,10 +1,21 @@
 {% extends 'base.html' %}
 
 {% block main %}
-    <h2> Tem certeza que deseja deletar: {{movMensalistas}}?</h2>
 
-    <form method="POST" action="{% url 'core_movMensalistas_delete' movMensalistas.id %}">
-        {% csrf_token %}
-        <button type="submit">Deletar</button>
-    </form>
+<div class="row">
+    <div class="col">
+        <h2>Tem certeza que deseja deletar?</h2>
+        <h4>Deletando: {{movMensalistas}}</h4>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <form method="POST" action="{% url 'core_movMensalistas_delete' movMensalistas.id %}">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Deletar</button>
+            <a href="{% url 'core_movMensalistas_update' movMensalistas.id %}" class="btn btn-primary">Cancelar</a>
+        </form>
+    </div>
+</div>
 {% endblock %}
