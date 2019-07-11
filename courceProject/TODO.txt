@@ -1,0 +1,5 @@
+Lista de itens a serem implementados ou melhorados futuramente.
+
+
+- Nas paginas onde é necessário inserir data ou hora, vale procurar a melhor maneira de disponibilizar esses campos ao usuário.
+    Atualmente esses campos estão livres para a insersao de qualquer tipo de valor, o que causa erro no cadastro de novas informaçoes no sistema.
