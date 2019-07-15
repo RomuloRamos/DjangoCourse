@@ -1,5 +1,5 @@
 {% extends 'website/base.html' %}
-
+{% load static %}
 {% block main %}
 
     <div class="row">
@@ -8,7 +8,7 @@
             <span>Eslogan da Empresa Aqui</span>
         </div>
         <div class="col-6">
-            <img src="" alt="Colocar a imagem aqui depois">
+            <img src="{% static 'img/estacionamento.jpg'%}" alt="Estacionamento Esperança">
         </div>
     </div>
 
@@ -16,11 +16,49 @@
 
     <div class="row">
         <div class="col-6">
+            Mussum Ipsum, cacilds vidis litro abertis. Interessantiss quisso pudia ce 
+            receita de bolis, mais bolis eu num gostis. Quem num gosta di mim que vai caçá 
+            sua turmis! Copo furadis é disculpa de bebadis, arcu quam euismod magna. 
+            Praesent vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget.
+        </div>
+        <div class="col-6">
+            Sapien in monti palavris qui num significa nadis i pareci latim.  Quem num 
+            gosta di mé, boa gentis num é. A ordem dos tratores não altera o pão duris. 
+            Cevadis im ampola pa arma uma pindureta.
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-4">
+            Mussum Ipsum, cacilds vidis litro abertis. Interessantiss quisso pudia ce 
+            receita de bolis, mais bolis eu num gostis. Quem num gosta di mim que vai caçá 
+            sua turmis! Copo furadis é disculpa de bebadis, arcu quam euismod magna. 
+            Praesent vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget.
+        </div>
+        <div class="col-4">
+            <img src="{% static 'img/estacionamento.jpg' %}" alt="">
+        </div>
+        <div class="col-4">
+            Sapien in monti palavris qui num significa nadis i pareci latim.  Quem num 
+            gosta di mé, boa gentis num é. A ordem dos tratores não altera o pão duris. 
+            Cevadis im ampola pa arma uma pindureta.
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-6">
+            Sapien in monti palavris qui num significa nadis i pareci latim.  Quem num 
+            gosta di mé, boa gentis num é. A ordem dos tratores não altera o pão duris. 
+            Cevadis im ampola pa arma uma pindureta.
 
         </div>
         <div class="col-6">
-            
+            Sapien in monti palavris qui num significa nadis i pareci latim.  Quem num 
+            gosta di mé, boa gentis num é. A ordem dos tratores não altera o pão duris. 
+            Cevadis im ampola pa arma uma pindureta.
+
         </div>
     </div>
+    {% include 'website/footer.html' %}
 
 {% endblock%}
