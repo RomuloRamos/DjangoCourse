@@ -9,5 +9,8 @@
     text-align: center;
     margin-bottom: 0;
     bottom: 0;
-    /* position: absolute; */
+    position: absolute;
+}
+.row-space{
+    margin-top: 25px;
 }
