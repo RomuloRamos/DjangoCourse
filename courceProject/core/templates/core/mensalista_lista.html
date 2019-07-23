@@ -45,12 +45,32 @@
         </div>
         
         <div class="col-8">
-                <ul>
+                <!-- <ul>
                 {% for item_da_vez in mensalistas %}
                 <li>
                     <a href = "{% url 'core_mensalistas_update' item_da_vez.id%}" >  {{item_da_vez.inicio}} - {{item_da_vez.veiculo.placa}} </a> 
                 </li>
                 {%endfor%}
-            </ul>
+            </ul> -->
+            <table class="table table-hover">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">ID</th>    
+                            <th scope="col">Veículo</th>
+                            <th scope="col">Inicio</th>
+                            <th scope="col">Valor</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for cliente in mensalistas %}
+                        <tr onclick="location.href = '{% url 'core_mensalistas_update' cliente.id%}';">
+                            <th scope="row">{{cliente.id}}</th>
+                            <td>{{cliente.veiculo}}</td>
+                            <td>{{cliente.inicio}}</td>
+                            <td>R${{cliente.valor_mes}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
         </div>
 {% endblock %}

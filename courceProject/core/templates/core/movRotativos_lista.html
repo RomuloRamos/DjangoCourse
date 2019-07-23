@@ -42,13 +42,42 @@
             </form>
         </div>
         <div class="col-4">
-            <ul>
+            <!-- <ul>
                 {% for item_da_vez in mov_rot %}
                     <li>
                         <a href="{% url 'core_movRotativos_update' item_da_vez.id %}"> {{item_da_vez}} </a>
                     </li>
                 {%endfor%}
-            </ul>              
+            </ul>               -->
+            <table class="table table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                    <th scope="col">ID</th>    
+                    <th scope="col">Veiculo</th>
+                    <th scope="col">Entrada</th>
+                    <th scope="col">Saída</th>
+                    <th scope="col">Valor</th>
+                    <th scope="col">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item_da_vez in mov_rot %}
+                    <tr onclick="location.href = '{% url 'core_movRotativos_update' item_da_vez.id%}';">
+                        <th scope="row">{{item_da_vez.id}}</th>
+                        <td>{{item_da_vez.veiculo}}</td>
+                        <td>{{item_da_vez.entrada}}</td>
+                        <td>{{item_da_vez.saida}}</td>
+                        <td>R${{item_da_vez.total}}</td>
+                        {% if item_da_vez.pago == True %}
+                        <td>Pago</td>
+                        {% elif item_da_vez.pago == False %}
+                        <td>Fatura em aberto</td>
+                        {% endif %}
+                    </tr>
+                
+                    {% endfor %}
+                </tbody>
+            </table>
         </div>
     </div>
 
