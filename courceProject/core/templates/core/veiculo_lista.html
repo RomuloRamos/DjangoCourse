@@ -41,13 +41,36 @@
             </form>
         </div>
         <div class="col">
-            <ul>
+            <!-- <ul>
                 {% for item_da_vez in veiculos %}
                     <li>
                         <a href="{% url 'core_veiculo_update' item_da_vez.id %}"> {{item_da_vez}} </a>
                     </li>
                 {%endfor%}
-            </ul>
+            </ul> -->
+            <table class="table table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                    <th scope="col">ID</th>    
+                    <th scope="col">Marca</th>
+                    <th scope="col">Placa</th>
+                    <th scope="col">Cor</th>
+                    <th scope="col">Proprietário</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for carro in veiculos %}
+                    <tr onclick="location.href = '{% url 'core_veiculo_update' carro.id%}';">
+                        <th scope="row">{{carro.id}}</th>
+                        <td>{{carro.marca}}</td>
+                        <td>{{carro.placa}}</td>
+                        <td>{{carro.cor}}</td>
+                        <td>{{carro.proprietario}}</td>
+                    </tr>
+                
+                    {% endfor %}
+                </tbody>
+            </table>
         </div>
     </div>
 
